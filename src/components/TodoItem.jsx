@@ -26,7 +26,7 @@ export function TodoItem(props) {
 		<M.Paper className="todo">
 			<div className="header">
 				<M.Typography variant="h5">{props.todo.title}</M.Typography>
-				{props.upcoming && (
+				{props.showDate && (
 					<M.Typography variant="subtitle1">{props.todo.date}</M.Typography>
 				)}
 			</div>

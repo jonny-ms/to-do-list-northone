@@ -24,14 +24,14 @@ function App() {
 		setTodos(updatedTodos);
 	};
 
+	const handleNewTodo = todo => {
+		todo.id = todos.length;
+		setTodos([...todos, todo]);
+	};
+
 	return (
 		<Container>
-			<NewTodo
-				addNewTodo={todo => {
-					todo.id = todos.length;
-					setTodos([...todos, todo]);
-				}}
-			/>
+			<NewTodo addNewTodo={handleNewTodo} />
 			<TodoList todos={todos} onEdit={handleEdit} onDelete={handleDelete} />
 		</Container>
 	);

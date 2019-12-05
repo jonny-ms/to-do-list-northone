@@ -13,7 +13,7 @@ export function NewTodo(props) {
 	const [date, setDate] = React.useState(moment().format("MM/DD/YYYY"));
 
 	const handleDate = date => {
-		setDate(moment(date, "MM/DD/YYYY"));
+		setDate(moment(date).format("MM/DD/YYYY"));
 	};
 
 	const handleSubmit = () => {

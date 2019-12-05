@@ -4,9 +4,15 @@ import { TodoItem } from "./TodoItem";
 import moment from "moment";
 
 export function TodoList(props) {
-	const overdue = props.todos.filter(todo => {
-		return todo.date < moment().format("MM/DD/YYYY") && todo.complete === false;
-	});
+	const overdue = props.todos
+		.filter(todo => {
+			return (
+				todo.date < moment().format("MM/DD/YYYY") && todo.complete === false
+			);
+		})
+		.sort((a, b) => {
+			return moment(a.date, "MM/DD/YYYY").diff(moment(b.date, "MM/DD/YYYY"));
+		});
 
 	const today = props.todos.filter(todo => {
 		return todo.date === moment().format("MM/DD/YYYY");
@@ -46,6 +52,7 @@ export function TodoList(props) {
 								onEdit={props.onEdit}
 								onDelete={props.onDelete}
 								key={i}
+								showDate={true}
 							/>
 						);
 					})}
@@ -90,7 +97,7 @@ export function TodoList(props) {
 								todo={todo}
 								onEdit={props.onEdit}
 								onDelete={props.onDelete}
-								upcoming={true}
+								showDate={true}
 								key={i}
 							/>
 						);

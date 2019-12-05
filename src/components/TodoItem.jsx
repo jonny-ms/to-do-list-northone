@@ -4,18 +4,12 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { EditDialog } from "./EditDialog";
 
 export function TodoItem(props) {
-	const [complete, setComplete] = React.useState(props.todo.complete);
-
-	React.useEffect(() => {
+	const handleStatus = () => {
 		const editedTodo = {
 			...props.todo,
-			complete
+			complete: !props.todo.complete
 		};
 		props.onEdit(editedTodo);
-	}, [complete]);
-
-	const handleStatus = () => {
-		complete ? setComplete(false) : setComplete(true);
 	};
 
 	const handleDelete = () => {
@@ -37,9 +31,9 @@ export function TodoItem(props) {
 				<M.FormControlLabel
 					control={
 						<M.Checkbox
-							checked={complete}
+							checked={props.todo.complete}
 							onChange={handleStatus}
-							value={complete}
+							value={props.todo.complete}
 							color="primary"
 						/>
 					}

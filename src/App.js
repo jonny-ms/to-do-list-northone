@@ -7,6 +7,15 @@ import { TodoList } from "./components/TodoList";
 function App() {
 	const [todos, setTodos] = React.useState([]);
 
+	// React.useEffect(() => {
+	//*Get user todos from api on app render
+	//*Set response to state
+	// }, []);
+
+	// React.useEffect(() => {
+	//*Post/Put to api on todo state change
+	// }, [todo]);
+
 	const handleEdit = editedTodo => {
 		const editedTodos = todos.map(todo => {
 			if (todo.id === editedTodo.id) {

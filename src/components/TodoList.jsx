@@ -45,13 +45,13 @@ export function TodoList(props) {
 			{overdue[0] && <M.Typography variant="h5">Overdue</M.Typography>}
 			<section className="todo-list">
 				{overdue[0] &&
-					overdue.map((todo, i) => {
+					overdue.map(todo => {
 						return (
 							<TodoItem
 								todo={todo}
 								onEdit={props.onEdit}
 								onDelete={props.onDelete}
-								key={i}
+								key={todo.id}
 								showDate={true}
 							/>
 						);
@@ -61,13 +61,13 @@ export function TodoList(props) {
 			{today[0] && <M.Typography variant="h5">Today</M.Typography>}
 			<section className="todo-list">
 				{today[0] &&
-					today.map((todo, i) => {
+					today.map(todo => {
 						return (
 							<TodoItem
 								todo={todo}
 								onEdit={props.onEdit}
 								onDelete={props.onDelete}
-								key={i}
+								key={todo.id}
 							/>
 						);
 					})}
@@ -76,13 +76,13 @@ export function TodoList(props) {
 			{tomorrow[0] && <M.Typography variant="h5">Tomorrow</M.Typography>}
 			<section className="todo-list">
 				{tomorrow[0] &&
-					tomorrow.map((todo, i) => {
+					tomorrow.map(todo => {
 						return (
 							<TodoItem
 								todo={todo}
 								onEdit={props.onEdit}
 								onDelete={props.onDelete}
-								key={i}
+								key={todo.id}
 							/>
 						);
 					})}
@@ -91,14 +91,14 @@ export function TodoList(props) {
 			{upcoming[0] && <M.Typography variant="h5">Upcoming</M.Typography>}
 			<section className="todo-list">
 				{upcoming[0] &&
-					upcoming.map((todo, i) => {
+					upcoming.map(todo => {
 						return (
 							<TodoItem
 								todo={todo}
 								onEdit={props.onEdit}
 								onDelete={props.onDelete}
 								showDate={true}
-								key={i}
+								key={todo.id}
 							/>
 						);
 					})}
